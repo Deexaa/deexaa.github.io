@@ -3,26 +3,23 @@ const SITE_DATA = {
     name: "Xuerui",
     tagline: "Hi:)",
     avatar: "assets/avatar.svg",
-    location: "Heilbronn, Germa",
-    affiliation: "University or Company",
-    email: "yourname@example.com",
+    location: "Heilbronn, Germany",
+    affiliation: "Technical University of Munich",
+    email: "xrzhang0121@gmail.com",
     links: [
-      { label: "Google Scholar", url: "https://scholar.google.com/" },
-      { label: "GitHub", url: "https://github.com/yourname" },
-      { label: "CV", url: "assets/cv.pdf" }
+      { label: "Google Scholar", url: "https://scholar.google.com/" }
     ]
   },
 
   about: [
-    "I am a researcher / engineer working on machine learning, reinforcement learning, and intelligent systems. Replace this paragraph with your current position, research direction, and background.",
-    "My research interests include large language models, AI agents, multimodal learning, and reliable decision-making. Replace this with your own keywords and long-term research goal.",
-    "If you are interested in collaboration, internships, or research discussions, please feel free to contact me."
+    "I am a PhD candidate working on deep learning. ",
+    "My research interests include continual learning, multimodal learning. ",
+    "If you are interested in collaboration or research discussions, please feel free to contact me."
   ],
 
   news: [
-    { date: "2026.05", text: "One paper was accepted by Conference / Journal Name." },
-    { date: "2026.03", text: "I joined University / Company as Role." },
-    { date: "2025.12", text: "Released a new project or dataset." }
+    { date: "2026.05", text: "One paper was accepted by CVPR 2026." },
+    { date: "2025.12", text: "I joined TUM as PhD candidate." }
   ],
 
   publications: [
