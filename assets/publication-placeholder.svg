@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480" role="img" aria-label="Publication image placeholder">
+  <rect width="640" height="480" fill="#ece8df"/>
+  <rect x="72" y="76" width="496" height="328" rx="12" fill="#ffffff" stroke="#dedbd3" stroke-width="3"/>
+  <path d="M120 158h276M120 210h400M120 262h360M120 314h238" stroke="#0f766e" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="480" cy="158" r="42" fill="#c9d8d2"/>
+  <text x="320" y="438" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#0b4f4a">PUBLICATION</text>
+</svg>

@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Academic personal homepage template">
+    <title>Academic Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" data-field="name">Homepage</a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#about">About Me</a>
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#awards">Awards</a>
+      </nav>
+    </header>
+
+    <main id="top" class="layout">
+      <aside class="profile-card" aria-label="Profile">
+        <img id="avatar" class="avatar" src="assets/avatar.svg" alt="Profile photo">
+        <h1 id="profile-name">Your Name</h1>
+        <p id="tagline" class="tagline">Your research vision or short motto.</p>
+
+        <dl class="profile-meta">
+          <div>
+            <dt>Location</dt>
+            <dd id="location">City, Country</dd>
+          </div>
+          <div>
+            <dt>Affiliation</dt>
+            <dd id="affiliation">University or Company</dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd><a id="email" href="mailto:yourname@example.com">yourname@example.com</a></dd>
+          </div>
+        </dl>
+
+        <div id="profile-links" class="profile-links"></div>
+      </aside>
+
+      <div class="content">
+        <section id="about" class="section">
+          <h2>About Me</h2>
+          <div id="about-content" class="paragraphs"></div>
+        </section>
+
+        <section id="news" class="section">
+          <h2>News</h2>
+          <ul id="news-list" class="news-list"></ul>
+        </section>
+
+        <section id="publications" class="section">
+          <h2>Publications</h2>
+          <div id="publication-list" class="publication-list"></div>
+        </section>
+
+        <section id="preprints" class="section">
+          <h2>Preprints</h2>
+          <ul id="preprint-list" class="simple-list"></ul>
+        </section>
+
+        <section id="education" class="section">
+          <h2>Education</h2>
+          <div id="education-list" class="timeline"></div>
+        </section>
+
+        <section id="experience" class="section">
+          <h2>Work and Research Experience</h2>
+          <div id="experience-list" class="timeline"></div>
+        </section>
+
+        <section id="services" class="section">
+          <h2>Selected Services</h2>
+          <ul id="service-list" class="simple-list"></ul>
+        </section>
+
+        <section id="awards" class="section">
+          <h2>Honors and Awards</h2>
+          <ul id="award-list" class="simple-list"></ul>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span id="footer-name">Your Name</span>
+      <span>Last updated <span id="last-updated"></span></span>
+    </footer>
+
+    <script src="data.js"></script>
+    <script>
+      const $ = (selector) => document.querySelector(selector);
+
+      function text(selector, value) {
+        const node = $(selector);
+        if (node) node.textContent = value || "";
+      }
+
+      function link(label, url, className = "") {
+        const anchor = document.createElement("a");
+        anchor.textContent = label;
+        anchor.href = url || "#";
+        if (url && !url.startsWith("#") && !url.startsWith("mailto:")) {
+          anchor.target = "_blank";
+          anchor.rel = "noopener noreferrer";
+        }
+        if (className) anchor.className = className;
+        return anchor;
+      }
+
+      function paragraph(value) {
+        const node = document.createElement("p");
+        node.textContent = value;
+        return node;
+      }
+
+      function renderProfile(data) {
+        document.title = `${data.name} - Homepage`;
+        document.querySelectorAll('[data-field="name"]').forEach((node) => {
+          node.textContent = data.name;
+        });
+        $("#avatar").src = data.avatar;
+        $("#avatar").alt = `${data.name} profile photo`;
+        text("#profile-name", data.name);
+        text("#tagline", data.tagline);
+        text("#location", data.location);
+        text("#affiliation", data.affiliation);
+        text("#email", data.email);
+        $("#email").href = `mailto:${data.email}`;
+        text("#footer-name", data.name);
+
+        const links = $("#profile-links");
+        links.replaceChildren(...data.links.map((item) => link(item.label, item.url, "button-link")));
+      }
+
+      function renderAbout(items) {
+        $("#about-content").replaceChildren(...items.map(paragraph));
+      }
+
+      function renderNews(items) {
+        const nodes = items.map((item) => {
+          const li = document.createElement("li");
+          const date = document.createElement("time");
+          date.textContent = item.date;
+          const body = document.createElement("span");
+          body.textContent = item.text;
+          li.append(date, body);
+          return li;
+        });
+        $("#news-list").replaceChildren(...nodes);
+      }
+
+      function renderPublications(items) {
+        const nodes = items.map((item) => {
+          const article = document.createElement("article");
+          article.className = "publication";
+
+          const image = document.createElement("img");
+          image.src = item.image || "assets/publication-placeholder.svg";
+          image.alt = "";
+          image.loading = "lazy";
+
+          const body = document.createElement("div");
+          body.className = "publication-body";
+
+          const venue = document.createElement("div");
+          venue.className = "venue";
+          venue.textContent = item.venue;
+
+          const title = document.createElement("h3");
+          title.append(link(item.title, item.url));
+
+          const authors = document.createElement("p");
+          authors.className = "authors";
+          authors.textContent = item.authors;
+
+          const summary = document.createElement("p");
+          summary.className = "summary";
+          summary.textContent = item.summary || "";
+
+          const actions = document.createElement("div");
+          actions.className = "publication-links";
+          actions.replaceChildren(...(item.links || []).map((entry) => link(entry.label, entry.url)));
+
+          const bullets = document.createElement("ul");
+          bullets.className = "publication-points";
+          (item.bullets || []).forEach((point) => {
+            const li = document.createElement("li");
+            li.textContent = point;
+            bullets.append(li);
+          });
+
+          body.append(venue, title, authors);
+          if (item.summary) body.append(summary);
+          if ((item.links || []).length) body.append(actions);
+          if ((item.bullets || []).length) body.append(bullets);
+          article.append(image, body);
+          return article;
+        });
+        $("#publication-list").replaceChildren(...nodes);
+      }
+
+      function renderPreprints(items) {
+        const nodes = items.map((item) => {
+          const li = document.createElement("li");
+          li.append(link(item.title, item.url));
+          const meta = document.createElement("span");
+          meta.textContent = `. ${item.authors} ${item.note || ""}`;
+          li.append(meta);
+          return li;
+        });
+        $("#preprint-list").replaceChildren(...nodes);
+      }
+
+      function renderTimeline(selector, items) {
+        const nodes = items.map((item) => {
+          const row = document.createElement("article");
+          row.className = "timeline-item";
+          const period = document.createElement("div");
+          period.className = "period";
+          period.textContent = item.period;
+          const body = document.createElement("div");
+          const title = document.createElement("h3");
+          title.textContent = item.degree || item.role;
+          const org = document.createElement("p");
+          org.className = "organization";
+          org.textContent = item.institution || item.organization;
+          body.append(title, org);
+          if (item.detail) body.append(paragraph(item.detail));
+          row.append(period, body);
+          return row;
+        });
+        $(selector).replaceChildren(...nodes);
+      }
+
+      function renderSimpleList(selector, items, formatter) {
+        const nodes = items.map((item) => {
+          const li = document.createElement("li");
+          li.textContent = formatter(item);
+          return li;
+        });
+        $(selector).replaceChildren(...nodes);
+      }
+
+      function initNavigation() {
+        const toggle = $(".nav-toggle");
+        const nav = $(".site-nav");
+        toggle.addEventListener("click", () => {
+          const isOpen = nav.classList.toggle("is-open");
+          toggle.setAttribute("aria-expanded", String(isOpen));
+        });
+        nav.addEventListener("click", () => {
+          nav.classList.remove("is-open");
+          toggle.setAttribute("aria-expanded", "false");
+        });
+      }
+
+      renderProfile(SITE_DATA.profile);
+      renderAbout(SITE_DATA.about);
+      renderNews(SITE_DATA.news);
+      renderPublications(SITE_DATA.publications);
+      renderPreprints(SITE_DATA.preprints);
+      renderTimeline("#education-list", SITE_DATA.education);
+      renderTimeline("#experience-list", SITE_DATA.experience);
+      renderSimpleList("#service-list", SITE_DATA.services, (item) => item);
+      renderSimpleList("#award-list", SITE_DATA.awards, (item) => `${item.year}, ${item.text}`);
+      text("#last-updated", new Date(document.lastModified).toLocaleDateString());
+      initNavigation();
+    </script>
+  </body>
+</html>
