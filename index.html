@@ -207,6 +207,8 @@
       }
 
       function renderPreprints(items) {
+        items = items || [];
+        $("#preprints").hidden = items.length === 0;
         const nodes = items.map((item) => {
           const li = document.createElement("li");
           li.append(link(item.title, item.url));
@@ -262,14 +264,14 @@
       }
 
       renderProfile(SITE_DATA.profile);
-      renderAbout(SITE_DATA.about);
-      renderNews(SITE_DATA.news);
-      renderPublications(SITE_DATA.publications);
+      renderAbout(SITE_DATA.about || []);
+      renderNews(SITE_DATA.news || []);
+      renderPublications(SITE_DATA.publications || []);
       renderPreprints(SITE_DATA.preprints);
-      renderTimeline("#education-list", SITE_DATA.education);
-      renderTimeline("#experience-list", SITE_DATA.experience);
-      renderSimpleList("#service-list", SITE_DATA.services, (item) => item);
-      renderSimpleList("#award-list", SITE_DATA.awards, (item) => `${item.year}, ${item.text}`);
+      renderTimeline("#education-list", SITE_DATA.education || []);
+      renderTimeline("#experience-list", SITE_DATA.experience || []);
+      renderSimpleList("#service-list", SITE_DATA.services || [], (item) => item);
+      renderSimpleList("#award-list", SITE_DATA.awards || [], (item) => `${item.year}, ${item.text}`);
       text("#last-updated", new Date(document.lastModified).toLocaleDateString());
       initNavigation();
     </script>
