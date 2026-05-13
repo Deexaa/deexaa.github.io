@@ -54,48 +54,41 @@ const SITE_DATA = {
     }
   ],
 
-  preprints: [
-    {
-      title: "Preprint Title",
-      url: "https://arxiv.org/",
-      authors: "Your Name, Coauthor A, Coauthor B.",
-      note: "arXiv preprint, 2026."
-    }
-  ],
-
+  
   education: [
     {
-      period: "2021.09 - 2025.06",
-      degree: "Ph.D. in Computer Science",
-      institution: "University Name",
-      detail: "Advisor: Professor Name"
+      period: "2025.09 - ",
+      degree: "PhD candidate",
+      institution: "Technical University of Munich",
+      detail: "Advisor: Ziyue Li"
     },
     {
-      period: "2017.09 - 2021.06",
-      degree: "B.S. in Computer Science",
-      institution: "University Name",
-      detail: ""
-    }
+      period: "2022.09 - 2025.03",
+      degree: "M.S. in Control Science and Engineering",
+      institution: "Zhejiang University",
+      detail: "Advisor: Zhihuan Song, Xinmin Zhang"
+    },
+    {
+      period: "2018.09 - 2022.06",
+      degree: "Bachelor in Automation",
+      institution: "Harbin Engineering University",
+      detail: "Advisor: Yulong Huang"
+    },
+    
   ],
 
   experience: [
     {
-      period: "2025.07 - Present",
-      role: "Research Scientist / Algorithm Engineer",
-      organization: "Company or Lab Name",
-      detail: "Briefly describe your work."
+      period: "2025.01 - Present",
+      role: "Research Scientist",
+      organization: "Sustech",
+      detail: "Advisor: Yu Zhang"
     },
-    {
-      period: "2024.06 - 2024.09",
-      role: "Research Intern",
-      organization: "Company or Lab Name",
-      detail: "Briefly describe your internship project."
-    }
-  ],
+   
 
   services: [
     "Reviewer for Conference / Journal Name 2026",
-    "Teaching assistant for Course Name",
+    "Teaching assistant for Deep Learning and Decision Making",
     "Program committee member for Workshop Name"
   ],
 
