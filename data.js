@@ -1,9 +1,9 @@
 const SITE_DATA = {
   profile: {
-    name: "Your Name",
-    tagline: "Your research vision or short motto.",
+    name: "Xuerui",
+    tagline: "Hi:)",
     avatar: "assets/avatar.svg",
-    location: "City, Country",
+    location: "Heilbronn, Germa",
     affiliation: "University or Company",
     email: "yourname@example.com",
     links: [
