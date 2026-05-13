@@ -2,7 +2,7 @@ const SITE_DATA = {
   profile: {
     name: "Xuerui",
     tagline: "Hi:)",
-    avatar: "assets/avatar.svg",
+    avatar: "assets/me.JPG",
     location: "Heilbronn, Germany",
     affiliation: "Technical University of Munich",
     email: "xrzhang0121@gmail.com",
@@ -84,7 +84,7 @@ const SITE_DATA = {
       organization: "Sustech",
       detail: "Advisor: Yu Zhang"
     },
-   
+  ],
 
   services: [
     "Reviewer for Conference / Journal Name 2026",
