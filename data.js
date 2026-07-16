@@ -31,32 +31,13 @@ const SITE_DATA = {
 
   publications: [
     {
-      venue: "Conference 2026",
-      title: "Paper Title: A Concise Description of Your Work",
-      url: "https://arxiv.org/",
-      authors: "Your Name, Coauthor A, Coauthor B.",
+      venue: "Publication",
+      title: "HAD",
+      url: "#",
+      authors: "Xuerui Zhang.",
       image: "assets/publication-placeholder.svg",
-      summary: "A one-sentence summary of the paper's main contribution.",
-      links: [
-        { label: "Paper", url: "https://arxiv.org/" },
-        { label: "Code", url: "https://github.com/" },
-        { label: "Project", url: "https://example.com/" }
-      ],
-      bullets: [
-        "Describe the problem and why it matters.",
-        "Mention the key method, result, or contribution."
-      ]
-    },
-    {
-      venue: "Journal 2025",
-      title: "Another Representative Publication Title",
-      url: "https://example.com/",
-      authors: "Your Name, Coauthor C, Coauthor D.",
-      image: "assets/publication-placeholder.svg",
-      summary: "Short summary for this publication.",
-      links: [
-        { label: "Paper", url: "https://example.com/" }
-      ],
+      summary: "",
+      links: [],
       bullets: []
     }
   ],
