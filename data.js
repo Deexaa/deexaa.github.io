@@ -13,7 +13,7 @@ const SITE_DATA = {
       },
       {
         label: "LinkedIn",
-        url: "https://www.linkedin.com/feed/"
+        url: "https://www.linkedin.com/in/deexaa/"
       }
     ]
   },
