@@ -1,6 +1,6 @@
 const SITE_DATA = {
   profile: {
-    name: "Xuerui",
+    name: "Xuerui Zhang (张雪睿)",
     tagline: "Hi:)",
     avatar: "assets/me.JPG",
     location: "Heilbronn, Germany",
