@@ -175,6 +175,35 @@ a:hover {
   font-weight: 600;
 }
 
+.button-link {
+  gap: 8px;
+}
+
+.button-link::before {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.button-link[href*="scholar.google"]::before {
+  content: "G";
+  background: #4285f4;
+  border-radius: 50%;
+}
+
+.button-link[href*="linkedin.com"]::before {
+  content: "in";
+  background: #0a66c2;
+  font-family: Arial, sans-serif;
+}
+
 .button-link:hover {
   border-color: var(--accent);
   color: var(--accent-strong);
