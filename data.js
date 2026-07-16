@@ -7,7 +7,14 @@ const SITE_DATA = {
     affiliation: "Technical University of Munich",
     email: "xrzhang0121@gmail.com",
     links: [
-      { label: "Google Scholar", url: "https://scholar.google.com/" }
+      {
+        label: "Google Scholar",
+        url: "https://scholar.google.com/citations?user=Sp50HNAAAAAJ&hl=en"
+      },
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/feed/"
+      }
     ]
   },
 
