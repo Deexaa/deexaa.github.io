@@ -31,13 +31,15 @@ const SITE_DATA = {
 
   publications: [
     {
-      venue: "Publication",
-      title: "HAD",
-      url: "#",
-      authors: "Xuerui Zhang.",
+      venue: "CVPR 2026",
+      title: "HAD: Heterogeneity-Aware Distillation for Lifelong Heterogeneous Learning",
+      url: "https://github.com/Deexaa/HAD",
+      authors: "Xuerui Zhang, Xuehao Wang, Zhan Zhuang, Linglan Zhao, Ziyue Li, Xinmin Zhang, Zhihuan Song, Yu Zhang.",
       image: "assets/publication-placeholder.svg",
-      summary: "",
-      links: [],
+      summary: "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 10863-10873, 2026.",
+      links: [
+        { label: "Code", url: "https://github.com/Deexaa/HAD" }
+      ],
       bullets: []
     }
   ],
